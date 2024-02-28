@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Data;
+using System.Windows.Forms;
 
 
 namespace CSharpStudy
@@ -42,6 +44,25 @@ namespace CSharpStudy
                     break;
                 }
             }
+
+            List<string> list = new List<string>()
+            {
+                "Point",
+                string.Empty
+            };
+            string[] columns = new string[3] {"file1", "file2", "file3" };
+
+            list.AddRange(columns);
+
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(list.Select(i => new DataColumn(i, typeof(double))).ToArray());
+
+            foreach(var item in dt.Columns)
+            {
+                Console.WriteLine(item);
+            }
+
+            
 
         }
 
