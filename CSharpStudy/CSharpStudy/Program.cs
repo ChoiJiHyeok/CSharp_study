@@ -68,17 +68,7 @@ namespace CSharpStudy
 
         private static void FindNumber(ConcurrentDictionary<int, int> cd, int numItems)
         {
-            //lock(lockObj)
-            //{
-            //    for (int i = 0; i < numItems; i++)
-            //    {
-            //        if (i == 23)
-            //        {
-            //            cd[i] += 1;
-            //        }
-
-            //    }
-            //}
+            
             for(int i = 0; i < numItems; i++)
             {
                 cd.AddOrUpdate(i, 23 * 23, (key, value) => value + 1);

@@ -10,7 +10,20 @@ namespace CSharpStudy
     {
         public static IReadOnlyList<Product> productList => reports;
         private static readonly List<Product> reports = new List<Product>();
+        private static int idx = -1;
 
+
+        public static Product SelectedReport
+        {
+            get
+            {
+                if (idx != -1)
+                {
+                    return reports[idx];
+                }
+                return null;
+            }
+        }
     }
 
 }

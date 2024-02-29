@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Collections.Concurrent;
 using System.Windows.Forms;
 
 namespace CSharpStudy
@@ -26,6 +27,9 @@ namespace CSharpStudy
         public List<Product> productInfomations => products;
 
         private readonly List<Product> products = new List<Product>();
+
+        private ConcurrentDictionary<Product, DataTable> productDic = new ConcurrentDictionary<Product, DataTable>();///
+        
 
         public bool TryAdd(string categoryName, string productName)
         {
